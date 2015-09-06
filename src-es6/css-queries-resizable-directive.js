@@ -4,6 +4,16 @@ import { ElementQueries } from './css-rules-extractor';
 var queries = new ElementQueries();
 var selectors = queries.init();
 
+let matchesSelector = Element.prototype.matchesSelector || (Element.prototype.matchesSelector = Element.prototype.webkitMatchesSelector || Element.prototype.mozMatchesSelector || function (selecta) {
+            var els = document.querySelectorAll(selecta);
+            for (var i = 0, L = els.length; i < L; i++) {
+                if (els[i] == this) {
+                    return true;
+                }
+            }
+            return false;
+        });
+
 // TODO use a better resize detector https://github.com/wnr/element-resize-detector
 
 /**
@@ -66,12 +76,7 @@ export default function () {
             var key, option, width = 0, height = 0, value, actualValue, attrValues, attrValue, attrName;
             var thisElementOptions = [].concat.apply([], Object.keys(selectors)
                 .filter((key) => {
-                    for (let matchingElement of Array.from(elem[0].parentNode.querySelectorAll(key))) {
-                        if (matchingElement === elem[0]) {
-                            return true;
-                        }
-                    }
-                    return false;
+                    return matchesSelector.call(elem[0], key);
                 })
                 .map(key => selectors[key]));
             if (thisElementOptions.length === 0) {
