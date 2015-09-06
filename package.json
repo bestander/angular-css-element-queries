@@ -1,0 +1,26 @@
+{
+  "name": "angular-css-element-queries",
+  "version": "1.0.0",
+  "description": "CSS element queries \"polyfill\" for Angular.js 1.x",
+  "main": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bestander/angular-css-element-queries.git"
+  },
+  "keywords": [
+    "angular",
+    "element-queries"
+  ],
+  "author": "Konstantin Raev",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bestander/angular-css-element-queries/issues"
+  },
+  "homepage": "https://github.com/bestander/angular-css-element-queries#readme",
+  "devDependencies": {
+    "babel": "^5.8.23",
+    "babelify": "^6.3.0",
+    "browserify": "^11.0.1",
+    "css-element-queries": "^0.3.0"
+  }
+}
