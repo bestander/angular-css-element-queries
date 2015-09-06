@@ -3,13 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <title></title>
+    <style>
+        .ExampleApp-resizable {
+            background: darkcyan;
+        }
+        .ExampleApp-resizable[max-width^='400px'] {
+            background: indianred;
+        }
+    </style>
+    <script src="../node_modules/angular/angular.min.js"></script>
+    <script src="../umd-es5/resize-sensor.js"></script>
+    <script src="../umd-es5/css-rules-extractor.js"></script>
+    <script src="../umd-es5/css-queries-resizable-directive.js"></script>
+    <script>
+        var app = angular.module("ExampleApp", []);
+        app.directive("resizable", window.cssQueriesResizableDirective);
+    </script>
 </head>
-<body>
-<script src="../jspm_packages/system.js"></script>
-<script src="../config.js"></script>
-<script>
-    console.log("pre import")
-    System.import('lib/css-queries-resizable-directive.js');
-</script>
+<body ng-app="ExampleApp">
+<div class="ExampleApp-resizable" resizable>
+    SOME CONTENT
+
+</div>
 </body>
 </html>

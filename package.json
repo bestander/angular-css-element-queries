@@ -7,6 +7,10 @@
     "type": "git",
     "url": "git+https://github.com/bestander/angular-css-element-queries.git"
   },
+  "scripts": {
+    "compile-es6": "babel src-es6 --out-dir umd-es5 --modules umd",
+    "bundle-es5": "webpack umd-es5/css-queries-resizable-directive.js bundle-es5/css-queries-resizable-directive.js"
+  },
   "keywords": [
     "angular",
     "element-queries"
@@ -18,9 +22,7 @@
   },
   "homepage": "https://github.com/bestander/angular-css-element-queries#readme",
   "devDependencies": {
-    "babel": "^5.8.23",
-    "babelify": "^6.3.0",
-    "browserify": "^11.0.1",
-    "css-element-queries": "^0.3.0"
+    "angular": "^1.4.5",
+    "babel": "^5.8.23"
   }
 }
